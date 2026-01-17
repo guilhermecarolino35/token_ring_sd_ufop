@@ -52,7 +52,7 @@ class Client:
             self.wait_for_committed(response)
             print(
             f"[CLIENT {self.client_id}] "
-            f"Request {i} | "
+            f"Request {id} | "
             f"HTTP {response.status_code} | "
             f"Response {response.json()}"
         )
