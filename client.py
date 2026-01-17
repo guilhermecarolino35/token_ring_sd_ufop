@@ -50,6 +50,12 @@ class Client:
         for _ in range(30):
             response = self.send_write_request()
             self.wait_for_committed(response)
+            print(
+            f"[CLIENT {self.client_id}] "
+            f"Request {i} | "
+            f"HTTP {response.status_code} | "
+            f"Response {response.json()}"
+        )
             self.sleep_random()
 
 
