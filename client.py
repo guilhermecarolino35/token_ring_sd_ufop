@@ -42,9 +42,7 @@ class Client:
         if data.get("status") != "COMMITTED":
             raise RuntimeError("Resposta inválida do Cluster Sync")
 
-    def sleep_random(self):
-        sleep_time = random.uniform(1, 5)
-        time.sleep(sleep_time)
+    
 
     def run_loop(self):
         for _ in range(30):
@@ -55,8 +53,8 @@ class Client:
             f"Request {id} | "
             f"HTTP {response.status_code} | "
             f"Response {response.json()}"
-        )
-            self.sleep_random()
+            )
+            
 
 
 if __name__ == "__main__":

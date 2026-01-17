@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
-
+import time
+import random
 class ClusterSync:
     def __init__(self, process_id: int, port: int):
         self.process_id = process_id
@@ -8,6 +9,10 @@ class ClusterSync:
         self.app = Flask(__name__)
         self._setup_routes()
 
+    def sleep_random(self):
+        sleep_time = random.uniform(1, 5)
+        time.sleep(sleep_time)
+
     def _setup_routes(self):
         @self.app.route("/write", methods=["POST"])
         def write():
@@ -15,6 +20,9 @@ class ClusterSync:
             if data is None:
                 return jsonify({"error": "invalid request"}), 400
             
+            self.sleep_random()
+            ## Aqui tem q começar o token Ring 
+
             # Resposta mínima exigida
             return jsonify({"status": "COMMITTED"}), 200
         
