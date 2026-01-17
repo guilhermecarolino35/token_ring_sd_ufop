@@ -16,7 +16,7 @@ class ClusterSync:
                 return jsonify({"error": "invalid request"}), 400
             
             # Resposta mínima exigida
-            return jsonify({"status": "OK"}), 200
+            return jsonify({"status": "COMMITTED"}), 200
         
     
     def start(self):
