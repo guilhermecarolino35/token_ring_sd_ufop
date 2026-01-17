@@ -51,3 +51,8 @@ class Client:
             response = self.send_write_request()
             self.wait_for_committed(response)
             self.sleep_random()
+
+
+if __name__ == "__main__":
+    client = Client()
+    client.run_loop()
